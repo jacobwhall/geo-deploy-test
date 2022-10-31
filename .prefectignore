@@ -1,3 +1,5 @@
+./*-deployment.yaml
+
 # prefect artifacts
 .prefectignore
 
