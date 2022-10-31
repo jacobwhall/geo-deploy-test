@@ -23,7 +23,7 @@ prefect deployment run healthcheck/dataset_abc
 import configparser
 
 config = configparser.ConfigParser()
-config.read('dataset_abc/config.ini')
+config.read('config.ini')
 name = config["main"]["name"]
 
 from dataset_abc.healthcheck import healthcheck
