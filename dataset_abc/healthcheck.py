@@ -1,12 +1,15 @@
+import configparser
+
 import prefect
 from prefect import task, flow
 from prefect import get_run_logger
 
 
 @task
-def say_hi():
+def say_hi(name):
     logger = get_run_logger()
     logger.info("Hello from the Prefect 2.0 flow! 👋")
+    logger.info("Run name = %s", name)
 
 
 @task
@@ -25,10 +28,15 @@ def log_platform_info():
 
 
 @flow
-def healthcheck():
-    hi = say_hi()
+def healthcheck(name):
+    hi = say_hi(name)
     log_platform_info(wait_for=[hi])
 
 
 if __name__ == "__main__":
-    healthcheck()
+
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    name = config["main"]["name"]
+    
+    healthcheck(name)
