@@ -26,7 +26,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 name = config["main"]["name"]
 
-from dataset_abc.healthcheck import healthcheck
+from healthcheck import healthcheck
 from prefect.deployments import Deployment
 from prefect.filesystems import GitHub
 
