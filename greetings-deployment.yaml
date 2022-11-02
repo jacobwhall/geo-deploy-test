@@ -1,0 +1,39 @@
+###
+### A complete description of a Prefect Deployment for flow 'greetings'
+###
+name: Test (Greetings)
+description: null
+version: 290c2b01bda1e22d6bf27216cd644230
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags: []
+parameters: {}
+schedule: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: greetings
+manifest_path: null
+storage: null
+path: /sciclone/home20/jwhall/deployments
+entrypoint: main.py:greetings
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    names:
+      title: names
+  required:
+  - names
+  definitions: null
